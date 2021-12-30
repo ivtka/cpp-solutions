@@ -9,14 +9,14 @@ auto main() -> int {
   };
 
   "Should return 216"_test = [] {
-    expect(80_ull == SumFct::perimeter(7));
+    expect(216_ull == SumFct::perimeter(7));
   };
 
   "Should return 114624"_test = [] {
-    expect(80_ull == SumFct::perimeter(20));
+    expect(114624_ull == SumFct::perimeter(20));
   };
 
   "Should return 14098308"_test = [] {
-    expect(80_ull == SumFct::perimeter(30));
+    expect(14098308_ull == SumFct::perimeter(30));
   };
 }
