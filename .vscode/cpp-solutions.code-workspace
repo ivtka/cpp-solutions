@@ -1,0 +1,67 @@
+{
+  "folders": [
+    {
+      "path": ".."
+    }
+  ],
+  "settings": {
+    "[cpp]": {
+      "editor.tabSize": 2
+    }
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Build dev",
+        "type": "shell",
+        "command": "cmake",
+        "args": [
+          "--build",
+          "build/linux-debug"
+        ],
+        "problemMatcher": [
+          "$gcc"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      }
+    ]
+  },
+  "launch": {
+    "configurations": [
+      {
+        "name": "Debug",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceRoot}/build/linux-debug/${relativeFileDirname}/${fileBasenameNoExtension}",
+        "environment": [
+          {
+            "name": "config",
+            "value": "Debug"
+          }
+        ],
+        "externalConsole": true,
+        "stopAtEntry": false,
+        "cwd": "${workspaceRoot}",
+        "preLaunchTask": "Build dev",
+        "MIMode": "gdb",
+        "setupCommands": [
+          {
+            "text": "-enable-pretty-printing",
+            "description": "enable pretty printing",
+            "ignoreFailures": true
+          },
+          {
+            "text": "handle SIGPIPE nostop noprint pass",
+            "description": "ignore SIGPIPE",
+            "ignoreFailures": true
+          }
+        ]
+      }
+    ],
+    "compounds": []
+  }
+}
