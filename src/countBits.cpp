@@ -1,10 +1,7 @@
 #include "countBits.h"
 
+#include <bit>
+
 unsigned int countBits(unsigned long long n) {
-  unsigned int bits = 0;
-  while (n) {
-    bits += n & 1;
-    n >>= 1;
-  }
-  return bits;
+  return std::popcount(n);
 }
