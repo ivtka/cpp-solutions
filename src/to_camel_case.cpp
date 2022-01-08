@@ -3,12 +3,10 @@
 #include <regex>
 
 std::string to_camel_case(std::string text) {
-  if (text.empty()) return text;
-  for (auto it = text.begin(); it != text.end(); it++) {
-    if (*it == '_' || *it == '-') {
-      char &c = *(it + 1);
-      c = toupper(c);
-      text.erase(it);
+  for (int i = 0; i < text.size(); i++) {
+    if (text[i] == '-' || text[i] == '_') {
+      text.erase(i, 1);
+      text[i] = toupper(text[i]);
     }
   }
   return text;
