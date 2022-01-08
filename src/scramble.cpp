@@ -1,20 +1,10 @@
 #include "scramble.h"
 
-#include <array>
+#include <algorithm>
+#include <ranges>
 
-bool scramble(const std::string &s1, const std::string &s2) {
-  int matches = s2.length();
-  std::array<int, 256> chars{0};
-  for (char alfa : s2) {
-    chars[alfa]++;
-  }
-  for (char alfa : s1) {
-    if (chars[alfa]-- > 0) {
-      if (!--matches) {
-        return true;
-      }
-    }
-  }
-
-  return false;
+bool scramble(std::string s1, std::string s2) {
+  std::ranges::sort(s1);
+  std::ranges::sort(s2);
+  return std::ranges::includes(s1, s2);
 }
