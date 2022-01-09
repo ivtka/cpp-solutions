@@ -1,5 +1,6 @@
 #include <boost/ut.hpp>
 #include <codewars.h>
+#include <regex>
 
 auto main() -> int {
   using namespace boost::ut;
@@ -76,5 +77,17 @@ auto main() -> int {
     expect(DoubleLinear::dblLinear(20) == 57_i);
     expect(DoubleLinear::dblLinear(30) == 91_i);
     expect(DoubleLinear::dblLinear(50) == 175_i);
+  };
+
+  "Binary multiple of 3"_test = [] {
+    std::regex solution(multiple_of_3_regex);
+
+    expect(std::regex_match(" 0", solution) == false);
+    expect(std::regex_match("abc", solution) == false);
+    expect(std::regex_match("000", solution) == true);
+
+    expect(std::regex_match("110", solution) == true);
+    expect(std::regex_match("111", solution) == false);
+    expect(std::regex_match("101111000110000101001110", solution) == true);
   };
 }

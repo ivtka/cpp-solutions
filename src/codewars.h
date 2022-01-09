@@ -28,3 +28,6 @@ class DoubleLinear {
 public:
   static auto dblLinear(int n) -> int;
 };
+
+const std::string multiple_of_3_regex =
+    "(1(01*0)*1|0)*";
