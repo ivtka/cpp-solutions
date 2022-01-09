@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <bit>
+#include <numeric>
 #include <ranges>
 
 auto countBits(unsigned long long n) -> unsigned int {
@@ -54,12 +55,8 @@ auto to_camel_case(std::string text) -> std::string {
 }
 
 auto number(const std::vector<std::pair<int, int>> &busStops) -> unsigned int {
-  auto result = 0u;
-  for (const auto &stop :
-       busStops | std::views::transform([](const auto &stop) {
-         return stop.first - stop.second;
-       })) {
-    result += stop;
-  }
-  return result;
+  return std::accumulate(busStops.begin(), busStops.end(), 0,
+                         [](unsigned int sum, auto stop) {
+                           return sum + stop.first - stop.second;
+                         });
 }
