@@ -52,3 +52,14 @@ auto to_camel_case(std::string text) -> std::string {
   }
   return text;
 }
+
+auto number(const std::vector<std::pair<int, int>> &busStops) -> unsigned int {
+  auto result = 0u;
+  for (const auto &stop :
+       busStops | std::views::transform([](const auto &stop) {
+         return stop.first - stop.second;
+       })) {
+    result += stop;
+  }
+  return result;
+}

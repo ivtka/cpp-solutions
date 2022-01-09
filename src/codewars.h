@@ -1,6 +1,8 @@
 #pragma once
 
 #include <string>
+#include <utility>
+#include <vector>
 
 auto countBits(unsigned long long n) -> unsigned int;
 
@@ -19,3 +21,5 @@ public:
 };
 
 auto to_camel_case(std::string text) -> std::string;
+
+auto number(const std::vector<std::pair<int, int>> &busStops) -> unsigned int;
