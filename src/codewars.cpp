@@ -60,3 +60,26 @@ auto number(const std::vector<std::pair<int, int>> &busStops) -> unsigned int {
                            return sum + stop.first - stop.second;
                          });
 }
+
+auto DoubleLinear::dblLinear(int n) -> int {
+  int x = 0, y = 0;
+  std::vector<int> lst = {1};
+  while (lst.size() <= n) {
+    int a = 2 * lst[x] + 1;
+    int b = 3 * lst[y] + 1;
+
+    if (a > b) {
+      lst.push_back(b);
+      y += 1;
+    } else if (a < b) {
+      lst.push_back(a);
+      x += 1;
+    } else {
+      lst.push_back(a);
+      x += 1;
+      y += 1;
+    }
+  }
+
+  return lst[n];
+}

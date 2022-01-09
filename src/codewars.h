@@ -23,3 +23,8 @@ public:
 auto to_camel_case(std::string text) -> std::string;
 
 auto number(const std::vector<std::pair<int, int>> &busStops) -> unsigned int;
+
+class DoubleLinear {
+public:
+  static auto dblLinear(int n) -> int;
+};

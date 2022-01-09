@@ -70,4 +70,11 @@ auto main() -> int {
       expect(number(V2{V{10, 0}, V{13, 0}, V{17, 40}}) == 0_u);
     };
   }
+
+  "Twice linear"_test = [] {
+    expect(DoubleLinear::dblLinear(10) == 22_i);
+    expect(DoubleLinear::dblLinear(20) == 57_i);
+    expect(DoubleLinear::dblLinear(30) == 91_i);
+    expect(DoubleLinear::dblLinear(50) == 175_i);
+  };
 }
