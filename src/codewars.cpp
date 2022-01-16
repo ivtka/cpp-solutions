@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <bit>
+#include <cmath>
 #include <numeric>
 #include <ranges>
 
@@ -82,4 +83,16 @@ auto DoubleLinear::dblLinear(int n) -> int {
   }
 
   return lst[n];
+}
+
+auto last_digit(std::list<int> array) -> int {
+  int64_t p = 1;
+  auto it = array.rbegin();
+  while (it != array.rend()) {
+    int a = p >= 4 ? 4 + (p % 4) : p;
+    int b = *it >= 20 ? 20 + (*it % 20) : *it;
+    p = pow(b, a);
+    it++;
+  }
+  return p % 10;
 }

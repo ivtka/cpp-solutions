@@ -1,5 +1,6 @@
 #pragma once
 
+#include <list>
 #include <string>
 #include <utility>
 #include <vector>
@@ -30,3 +31,5 @@ public:
 };
 
 const std::string multiple_of_3_regex = "(1(01*0)*1|0)*";
+
+auto last_digit(std::list<int> array) -> int;

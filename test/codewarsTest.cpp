@@ -90,4 +90,20 @@ auto main() -> int {
     expect(std::regex_match("111", solution) == false);
     expect(std::regex_match("101111000110000101001110", solution) == true);
   };
+
+  "Last digit of a huge number"_test = [] {
+    expect(last_digit({}) == 1_i);
+    expect(last_digit({0, 0}) == 1_i);
+    expect(last_digit({0, 0, 0}) == 0_i);
+    expect(last_digit({1, 2}) == 1_i);
+    expect(last_digit({4, 3, 6}) == 4_i);
+    expect(last_digit({3, 4, 5}) == 1_i);
+    expect(last_digit({4, 3, 6}) == 4_i);
+    expect(last_digit({7, 6, 21}) == 1_i);
+    expect(last_digit({12, 30, 21}) == 6_i);
+    expect(last_digit({2, 2, 2, 0}) == 4_i);
+    expect(last_digit({937640, 767456, 981242}) == 0_i);
+    expect(last_digit({123232, 694022, 140249}) == 6_i);
+    expect(last_digit({499942, 898102, 846073}) == 6_i);
+  };
 }
