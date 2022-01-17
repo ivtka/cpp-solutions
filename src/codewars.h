@@ -33,3 +33,7 @@ public:
 const std::string multiple_of_3_regex = "(1(01*0)*1|0)*";
 
 auto last_digit(std::list<int> array) -> int;
+
+auto digitize(const int& n) -> std::vector<int>;
+
+auto hotpo(unsigned int n) -> unsigned int;

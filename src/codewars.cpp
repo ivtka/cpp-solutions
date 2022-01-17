@@ -96,3 +96,26 @@ auto last_digit(std::list<int> array) -> int {
   }
   return p % 10;
 }
+
+auto digitize(const int &n) -> std::vector<int> {
+  auto digits = std::to_string(n);
+  std::vector<int> res(digits.length());
+  std::ranges::transform(digits, std::back_inserter(res),
+                         [](const auto &c) { return c - '0'; });
+  return res;
+}
+
+static auto hotpo_impl(unsigned int n, unsigned int &total) {
+  if (n == 1 || n == 0) return;
+  if (n % 2 == 0) n = n / 2;
+  else n = 3 * n + 1;
+  total++;
+  hotpo_impl(n, total);
+}
+
+auto hotpo(unsigned int n) -> unsigned int
+{
+  unsigned int total = 0;
+  hotpo_impl(n, total);
+  return total;
+}
