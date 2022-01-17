@@ -105,17 +105,12 @@ auto digitize(const int &n) -> std::vector<int> {
   return res;
 }
 
-static auto hotpo_impl(unsigned int n, unsigned int &total) {
-  if (n == 1 || n == 0) return;
-  if (n % 2 == 0) n = n / 2;
-  else n = 3 * n + 1;
-  total++;
-  hotpo_impl(n, total);
-}
-
-auto hotpo(unsigned int n) -> unsigned int
-{
-  unsigned int total = 0;
-  hotpo_impl(n, total);
-  return total;
+auto hotpo(unsigned int n) -> unsigned int {
+  if (n == 1)
+    return 0;
+  if (n % 2) {
+    return 1 + hotpo(3 * n + 1);
+  } else {
+    return 1 + hotpo(n / 2);
+  }
 }
